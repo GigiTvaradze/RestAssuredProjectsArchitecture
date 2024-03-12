@@ -1,0 +1,21 @@
+Resources:
+Resources represent API/Collection which can be accessed from the Server
+example: Google.com/maps  (maps is resource)
+
+Path Parameters:
+Path parameters are variable parts of a URL path.
+They are typically used to point to specific resource within a collection, such as a user identified by ID.
+example: Google.com/Images/1123343
+
+Query Parameters:
+Query Parameters is used to sort/filter the resources.
+Query Parameters are identified with ?""
+example: amazon.com/orders?sort_by=2/20/2020
+
+Headers/Cookies:
+Headers represent the meta-data associated with API request and response.
+In layman terms, we were sending Additional details to API to process our request.
+example: like content type is JSON
+
+End Point Request URL can be constructed as below:
+Base URL/resource/(Query/Path)Parameters
