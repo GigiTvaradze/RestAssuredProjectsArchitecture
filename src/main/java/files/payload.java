@@ -19,4 +19,13 @@ public class payload {
                 "  \"language\": \"French-IN\"\n" +
                 "}";
     }
+
+
+    public static String UpdateAddress(){
+        return "{\n" +
+                "  \"place_id\": \"1e5b62a2d8654b408f391d106a6b7360\",\n" +
+                "  \"address\": \"44 winter walk, USA\",\n" +
+                "  \"key\": \"qaclick123\"\n" +
+                "}";
+    }
 }
