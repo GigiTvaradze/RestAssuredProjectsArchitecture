@@ -19,3 +19,33 @@ example: like content type is JSON
 
 End Point Request URL can be constructed as below:
 Base URL/resource/(Query/Path)Parameters
+
+What is Rest Assured?
+Rest-Assured is a Java-Based library that is used to test RESTful Web Services/API's.
+
+
+This is three libraries, which are needed to start Rest Assured Project:hamcrest, testng, rest-assured.
+
+Rest Assured working on three principle: GIVEN WHEN THEN.
+
+1. Given
+The given() part of a Rest Assured test specifies the initial context or preconditions for the test.
+This is where you set up your request, including any headers, parameters, or authentication details required by the API.
+You can also set the base URI, base path, base port, and other global configurations here.
+given()
+    .baseUri("https://api.example.com")
+    .header("Authorization", "Bearer <token>")
+    .param("key", "value")
+
+2. When
+The when() part of the test describes the action that you want to perform.
+Typically, this is where you specify the HTTP method (GET, POST, PUT, DELETE, etc.) and the endpoint or resource you want to interact with.
+This is the part of the test where the API request is actually made.
+.when()
+    .get("/users/123")
+
+3.The then() part of the test is where you define the expected outcome or response from the API call.
+Here, you can specify assertions to verify aspects of the response such as the status code, response body, headers, and more.
+.then()
+    .statusCode(200)
+    .body("name", equalTo("John Doe"))
