@@ -1,0 +1,10 @@
+{
+  "PutRequestBodies": {
+    "requestBody1": {
+      "key": "value1"
+    },
+    "requestBody2": {
+      "key": "value2"
+    }
+  }
+}
