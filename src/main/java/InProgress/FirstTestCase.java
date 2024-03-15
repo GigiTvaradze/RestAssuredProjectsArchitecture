@@ -51,7 +51,6 @@ public class FirstTestCase {
 
         given().log().all().queryParam("key", "qaclick123")
                 .header("Content-Type", "application/json")
-//              .body(payload.UpdateAddress())
                 .body("{\n" +
                         "  \"place_id\": \"" + placeId + "\",\n" +
                         "  \"address\": \"44 winter walk walk, GEO\",\n" +
