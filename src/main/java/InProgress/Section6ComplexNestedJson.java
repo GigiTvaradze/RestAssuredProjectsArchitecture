@@ -17,9 +17,32 @@ public class Section6ComplexNestedJson {
     public void hereWeGo(){
         //Array is collection of different elements
         JsonPath js = new JsonPath(payload.CoursePrice());
-        js.getString("dashboard.purchaseAmount");
-        System.out.println(js.getString("dashboard.purchaseAmount"));
+        //Number of courses
+        Integer courseSize = js.getInt("courses.size()");
+        System.out.println(courseSize);
+        //Purchase Amount
+        Integer purchaseAmount = js.getInt("dashboard.purchaseAmount");
+        System.out.println(purchaseAmount);
+        //Title of the first Course
+        String firstCoursesTitle = js.getString("courses[0].title");
+        System.out.println(firstCoursesTitle);
+        //Print All course titles
+        for (int i = 0; i < courseSize; i++) {
+            String courseTitles = js.get("courses["+i+"].title");
+            System.out.println(courseTitles);
+        }
+        //All course titles and their respective Prices
+        for (int i = 0; i < courseSize; i++) {
+           String courseTitles = js.get("courses["+i+"].title");
+           Integer coursePrices = js.get("courses["+i+"].price");
+            System.out.println(courseTitles);
+            System.out.println(coursePrices);
+        }
+        //Number of copies sold by RPA Course
+        System.out.println();
 
+        //Verify if Sum of all Course prices matches with purchase Amount
+        System.out.println();
     }
 
     public void tearDown() {
