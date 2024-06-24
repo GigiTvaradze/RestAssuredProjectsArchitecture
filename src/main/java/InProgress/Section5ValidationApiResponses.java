@@ -1,23 +1,13 @@
 package InProgress;
 
-import io.restassured.RestAssured;
+import static io.restassured.RestAssured.*;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-public class Section5ValidationApiResponses {
-
-    @BeforeMethod
-    public void setUp() {
-        // Setup tasks, such as initializing variables, opening connections, etc.
-        RestAssured.baseURI = "https://rahulshettyacademy.com";
-    }
-
+public class Section5ValidationApiResponses extends BaseTest{
     @Test
     public void validateAddPlace() {
         // Your test code here
@@ -43,7 +33,8 @@ public class Section5ValidationApiResponses {
 
         System.out.println(Response);
 
-        JsonPath js = new JsonPath(Response); //for parsing Json
+        //JsonPath js = new JsonPath(Response); //for parsing Json
+        JsonPath js = ReUsableMethods.rawToJson(Response);
         String placeId = js.getString("place_id");
 
         System.out.println(placeId);
@@ -73,17 +64,12 @@ public class Section5ValidationApiResponses {
                 .statusCode(200).log().all()
                 .extract().response().asString();
 
-        JsonPath js1 = new JsonPath(getPlaceResponse);
+
+        JsonPath js1 = ReUsableMethods.rawToJson(getPlaceResponse);
         String actualAddress = js1.getString("address");
 
         System.out.println(actualAddress);
 
         Assert.assertEquals(actualAddress, "44 winter walk walk, GEO", "Address is Different !!! ");
-    }
-
-    @AfterMethod
-    public void tearDown() {
-        // Perform teardown tasks here, such as closing connections or releasing resources
-        System.out.println("Teardown tasks after each test method");
     }
 }
