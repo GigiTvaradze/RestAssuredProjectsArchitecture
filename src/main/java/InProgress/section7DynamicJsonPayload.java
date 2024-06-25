@@ -72,12 +72,15 @@ public class section7DynamicJsonPayload{
     //process is: convert file into Byte > Byte data to String
     @Test()
     public void payLoadFromExternalFile() throws IOException {
+        RestAssured.baseURI = "https://rahulshettyacademy.com";
+
         String Response = given()
                 .log()
                 .all()
                 .queryParam("key", "qaclick123")
                 .header("Content-Type", "application/json")
-                .body(new String(Files.readAllBytes(Paths.get("/Users/gtv/Desktop/addPlace.json"))))
+                //.body(new String(Files.readAllBytes(Paths.get("/Users/gtv/Desktop/addPlace.json"))))
+                .body(ReUsableMethods.GenerateStringFromResource("/Users/gtv/Desktop/addPlace.json"))
                 .when()
                 .post("maps/api/place/add/json")
                 .then()
