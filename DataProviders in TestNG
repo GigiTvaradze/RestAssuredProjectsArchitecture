@@ -1,0 +1,19 @@
+https://testng.org/parameters.html
+
+The DataProviders in TestNG are another way to pass the parameters in the test function.
+DataProviders pass different values to the TestNG Test Case in a single execution and in the form of TestNG Annotations.
+It is a part of the inbuilt TestNG data-driven testing for which TestNG is quite popular.
+
+DataProvider Syntax:
+
+@DataProvider (name = "name_of_dataprovider")
+public Object[][] dpMethod() {
+    return new Object [][] { values}
+}
+
+The TestNG DataProvider (the annotation part) contains only one single attribute, which is its name. It is always a string type in nature.
+DataProviders are not declared on top of the functions like TestNG parameters but have a method of their own, which in regular speaking terms called a dataprovider method.
+If the tester has not specified the name of the dataprovider, then the method name becomes the dataprovider name by default.
+TestNG dataprovider returns a 2d list of objects.
+The method then performs a data-driven test for each value that you have specified.
+The dataprovider name calls the dataprovider method, and if there is no name specified by the tester, then the dataprovider method is the default name used in the receiving @Test case.

@@ -4,7 +4,6 @@ import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import javax.management.Descriptor;
 
 public class Section6ComplexNestedJson extends BaseTest{
 
