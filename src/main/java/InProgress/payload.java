@@ -63,4 +63,34 @@ public class payload {
                 "}";
         return payload;
     }
+
+    public static String jiraCreateIssueData(String summaryText,String contentDescriptionText){
+        String jiraCreateIssueData = "{\n" +
+                "    \"fields\": {\n" +
+                "       \"project\": {\n" +
+                "          \"key\": \"SCRUM\"\n" +
+                "       },\n" +
+                "       \"summary\": \""+summaryText+"\",\n" +
+                "       \"description\": {\n" +
+                "          \"type\": \"doc\",\n" +
+                "          \"version\": 1,\n" +
+                "          \"content\": [\n" +
+                "              {\n" +
+                "                  \"type\": \"paragraph\",\n" +
+                "                  \"content\": [\n" +
+                "                      {\n" +
+                "                          \"type\": \"text\",\n" +
+                "                          \"text\": \""+contentDescriptionText+"\"\n" +
+                "                      }\n" +
+                "                  ]\n" +
+                "              }\n" +
+                "          ]\n" +
+                "       },\n" +
+                "       \"issuetype\": {\n" +
+                "          \"name\": \"Bug\"\n" +
+                "       }\n" +
+                "   }\n" +
+                "}";
+        return jiraCreateIssueData;
+    }
 }
