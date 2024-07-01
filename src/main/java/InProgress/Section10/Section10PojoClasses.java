@@ -1,13 +1,16 @@
-package InProgress;
+package InProgress.Section10;
 
-import static io.restassured.RestAssured.*;
-
+import InProgress.BaseTest;
+import InProgress.ReUsableMethods;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import static io.restassured.RestAssured.given;
 
-public class Section9HandlingOathAuthorizationGrantType extends BaseTest {
+public class Section10PojoClasses extends BaseTest {
+
+
     @Test
     public static void handlingOauthAuthorizationGrantType() {
         // Client Credentials Grant type > access_token
@@ -35,17 +38,20 @@ public class Section9HandlingOathAuthorizationGrantType extends BaseTest {
             return;
         }
 
-        String response = given().queryParam("access_token", accToken)
+        mainPojoClasses getCourseDetails = given().queryParam("access_token", accToken)
                 .when()
                 .log().all()
                 .get("/oauthapi/getCourseDetails")
                 .then()
                 .log().all()
                 .assertThat()
-                .statusCode(401).extract().asString();
+                .statusCode(401).extract().as(mainPojoClasses.class); //Returning Java Class Object
 
-        JsonPath js1 = ReUsableMethods.rawToJson(response);
-        String instructor = js1.getString("instructor");
-        Assert.assertEquals(instructor, "RahulShetty");
+        Assert.assertEquals(getCourseDetails.getInstructor(), "RahulShetty");
+        Assert.assertEquals(getCourseDetails.getLinkedIn(),"https://www.linkedin.com/in/rahul-shetty-trainer/");
+
+        //Total price of Courses
+        System.out.println(getCourseDetails.getCourses().getApi().get(0).getPrice());
+        System.out.println(getCourseDetails.getCourses().getApi().get(1).getPrice());
     }
 }
