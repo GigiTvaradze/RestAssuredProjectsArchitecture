@@ -21,7 +21,7 @@ public class Section8AutomatingJiraAPI {
         //Create Bug
         String Response =
                 given()
-                .header("Authorization", "Basic Z3R2YXJhZHplMjRAZ21haWwuY29tOkFUQVRUM3hGZkdGMEVqWjBzdzhBbnRsSmtyU1lrU3dscnVLbGs4Rk1xUWNYaVV3eGhlSUF5eFRpUEkxbjc1RjY5dW82M25vaklLUmVtbUNRNlFwZHhqTmFMdWRnU1gwWWNKaV84TnNPN2lSbUxQNVI0eGxIaTJmaGFsT283NUVhSERnbW54UG90b04xeDJuSFFuaWZLN09xS3BoMnB5X2t6T09ETU1TaFB2d3BWa1o5VzRLZEFvWT0xQTVGNEUwNA==")
+                .header("Authorization", "Basic " + APIToken)
                 .header("Accept", "application/json")
                 .header("Content-Type", "application/json")
                 .body(payload.jiraCreateIssueData(summaryText,contentDescriptionText))
@@ -49,7 +49,7 @@ public class Section8AutomatingJiraAPI {
         //attach the screenshot
         String attachedFileOnIssue =
                 given().pathParam("id",id)
-                .header("Authorization", "Basic "+ APIToken)
+                .header("Authorization", "Basic " + APIToken)
                 .header("X-Atlassian-Token", "no-check")
                 //file attachment:
                 .multiPart("file",new File("/Users/gtv/Desktop/Momavali.png")).log().all()

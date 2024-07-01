@@ -1,3 +1,27 @@
-Basic Authentication
+Basic Authentication:
 
-Oauth 2.0 Authentication
+Basic Authentication is a simple authentication scheme built into the HTTP protocol. It requires the client to send the username and password with every request.
+The client sends an HTTP request with the "Authorization" header containing the word "Basic" followed by a space and a base64-encoded string username:password.
+The server decodes the base64 string, verifies the credentials, and grants or denies access based on the verification.
+
+Request Header: Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQ= (where dXNlcm5hbWU6cGFzc3dvcmQ= is the base64 encoding of username:password).
+
+Oauth 2.0 Authentication:
+OAuth 2.0 is an authorization framework that allows third-party applications to obtain limited access to an HTTP service on behalf of a resource owner.
+It is more complex but offers greater flexibility and security.
+
+OAuth 2.0 defines four roles: Resource Owner, Client, Resource Server, and Authorization Server.
+The client requests access to resources controlled by the resource owner and hosted by the resource server.
+The client obtains an access token from the authorization server, which it uses to access the resource server.
+
+Grant Types:
+
+Authorization Code Grant: Used for server-side applications. It involves an initial authorization code that is exchanged for an access token.
+Implicit Grant: Simplified version of the authorization code grant, used for client-side applications (e.g., SPA).
+Resource Owner Password Credentials Grant: Directly uses the resource owner's username and password to obtain an access token.
+Client Credentials Grant: Used for machine-to-machine (M2M) authentication.
+
+Tokens:
+
+Access Token: A token used to access protected resources.
+Refresh Token: A token used to obtain a new access token without re-authenticating the user.
