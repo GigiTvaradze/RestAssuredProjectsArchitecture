@@ -1,4 +1,4 @@
-package InProgress.Section10;
+package InProgress.Section10Deserialization;
 
 import InProgress.BaseTest;
 import InProgress.ReUsableMethods;

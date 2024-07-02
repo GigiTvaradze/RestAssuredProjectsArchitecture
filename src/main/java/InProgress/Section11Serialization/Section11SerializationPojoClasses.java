@@ -1,19 +1,14 @@
-package InProgress.Section11;
+package InProgress.Section11Serialization;
 
 import InProgress.BaseTest;
-import InProgress.payload;
 import org.testng.annotations.Test;
 
 
-import InProgress.BaseTest;
 import InProgress.ReUsableMethods;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
-import javax.xml.stream.Location;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;

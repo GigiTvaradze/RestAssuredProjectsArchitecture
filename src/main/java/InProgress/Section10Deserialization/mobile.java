@@ -1,4 +1,4 @@
-package InProgress.Section10;
+package InProgress.Section10Deserialization;
 
 public class mobile {
     private String courseTitle;

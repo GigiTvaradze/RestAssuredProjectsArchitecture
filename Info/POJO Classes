@@ -1,15 +1,9 @@
-Serialization : process Java object into request body
-
-Deserialization : process Request body to Java object
-
 Design Approach:
 Java object is constructed with the support of POJO classes.
 POJO classes are created based on the Request/Response payload.
 
-
 A plain old Java object (POJO) is a class definition that is not tied to any Java framework so any Java program can use it.
 A POJO has no particular naming convention for properties and methods, or any other special restrictions.Their primary advantage is their reusability and simplicity.
-
 
 basic employee POJO :
 
@@ -33,3 +27,25 @@ public class EmployeePojo {
         return this.startDate;
     }
 }
+
+Deserialization : process Request body to Java object
+
+mainPojoClasses refers to a custom Java class that is designed to map the structure of the JSON response returned by the API endpoint
+.extract(): Extracts the response body for further processing.
+as(mainPojoClasses.class): Deserializes the response body into an instance of the mainPojoClasses class.
+This requires that the response body is in a format that can be mapped to the mainPojoClasses structure (typically JSON).
+
+mainPojoClasses getCourseDetails = given().queryParam("access_token", accToken)
+                .when()
+                .log().all()
+                .get("/oauthapi/getCourseDetails")
+                .then()
+                .log().all()
+                .assertThat()
+                .statusCode(401)
+                .extract()
+                .as(mainPojoClasses.class);
+
+Serialization : process Java object into request body
+for serialization need to create object of the pojo class: addPlacePojoClass addPlace = new addPlacePojoClass();
+.body(addPlace) >> just give object of POJO class and it automatically converts Object into JSON

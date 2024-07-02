@@ -1,4 +1,4 @@
-package InProgress.Section10;
+package InProgress.Section10Deserialization;
 
 public class webAutomation {
     public String getCourseTitle() {
