@@ -1,4 +1,4 @@
-package InProgress.Section11Serialization;
+package InProgress.Section12SpecBuilder;
 
 public class childLocationPojoClass {
     private double lat;
