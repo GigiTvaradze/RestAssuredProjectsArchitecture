@@ -1,0 +1,25 @@
+Rest Api Testing With Cucumber(BDD) Framework
+
+What is Gherkin?
+Gherkin is Business Readable, Domain Specific Language that lets you describe software's behavior.
+
+Keywords Used In Cucumber: Scenario , Feature, Feature File, Scenario Outline, Step Definition.
+
+In Cucumber Testcases are represented as Scenarios. Scenarios contain steps which are equivalent to test steps
+and use the following keywords(Gherkin Syntax) to denote them: Given, When, Then, But, and And(case sensitive).
+
+Given: Preconditions are mentioned in the GIven Keyword.
+When: The purpose of the When Steps is to describe the user action.
+Then: The purpose of the Then steps is to observe the expected output.
+
+AND and But Keywords:
+And is used for statements that are an addition to the previous steps and represent positive statements
+But is used for statements that are an addition to the previous steps and represent negative statements
+
+Feature and Feature File Keywords:
+Feature represents Business requirements .
+Feature File acts as a Test Suite which consists of all Scenarios.
+
+Scenario Outline for parametrization.
+
+when started, need two package. one for feature files and one for StepDefinitions
