@@ -1,0 +1,178 @@
+GraphQL is a query language for your API, and a server-side runtime for executing queries using a type system you define for your data.
+GraphQL isn’t tied to any specific database or storage engine and is instead backed by your existing code and data.
+
+A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type.
+
+All GraphQL queries are post calls by default.
+
+Key Concepts
+Schema:
+
+Query
+{
+  hero {
+    name
+    friends {
+      name
+      homeWorld {
+        name
+        climate
+      }
+      species {
+        name
+        lifespan
+        origin {
+          name
+        }
+      }
+    }
+  }
+}
+
+
+Schema
+type Query {
+  hero: Character
+}
+
+type Character {
+  name: String
+  friends: [Character]
+  homeWorld: Planet
+  species: Species
+}
+
+type Planet {
+  name: String
+  climate: String
+}
+
+type Species {
+  name: String
+  lifespan: Int
+  origin: Planet
+}
+
+GraphQL APIs are organized in terms of types and fields, not endpoints.
+The schema is a representation of the structure of the API and defines how the data can be queried and what types of data can be returned.
+Queries:
+
+Clients can request the exact data they need, nothing more, nothing less. This is achieved through a syntax that closely resembles JSON.
+A GraphQL query allows you to retrieve data from multiple sources in a single request.
+Mutations:
+
+Mutations are used to create, update, or delete data.
+They follow the same syntax as queries but are distinguished by the mutation keyword.
+Resolvers:
+
+Resolvers are functions that resolve a value for a type or field in a schema.
+Each field in a GraphQL query is backed by exactly one resolver function.
+Subscriptions:
+
+Subscriptions are used to maintain a real-time connection to the server, enabling clients to receive updates when data changes.
+
+Advantages
+Efficiency:
+
+Reduces over-fetching and under-fetching of data, as clients can specify exactly what they need.
+Multiple resources can be fetched in a single request.
+Flexibility:
+
+The shape of the response mirrors the shape of the request, making it intuitive for developers.
+Strongly Typed:
+
+The schema and type system allow for better validation, tooling, and automatic documentation generation.
+Evolvability:
+
+Fields and types can be deprecated without impacting existing queries, allowing for easier API evolution.
+Use Cases
+Mobile and Web Applications: Suitable for applications that require flexible and efficient data fetching.
+Microservices: Acts as a single entry point for multiple services.
+Real-Time Applications: With subscriptions, it supports real-time data updates.
+
+{
+  user(id: "1") {
+    id
+    name
+    email
+    posts {
+      title
+      content
+    }
+  }
+}
+
+Combining GraphQL with Rest Assured allows you to test GraphQL APIs using the powerful features of Rest Assured.
+This combination is useful for validating the functionality and performance of GraphQL endpoints, ensuring that queries and mutations work as expected.
+
+Benefits of Using Rest Assured with GraphQL
+Easy Integration:
+
+Rest Assured integrates smoothly with GraphQL, leveraging its powerful request and response handling capabilities.
+Readability:
+
+The DSL (Domain Specific Language) used by Rest Assured makes the test scripts readable and maintainable.
+Validation:
+
+Rest Assured provides robust validation mechanisms, allowing you to assert the structure and content of GraphQL responses easily.
+Flexibility:
+
+You can test both queries and mutations, ensuring comprehensive coverage of the GraphQL API.
+Automation:
+
+These tests can be integrated into CI/CD pipelines, enabling automated testing and ensuring the stability of your GraphQL services.
+
+-------
+query ($characterId: Int!, $name: String) {
+  character(characterId: $characterId) {
+    name
+    type
+    gender
+    image
+  }
+  location(locationId: 1465) {
+    name
+  }
+  episodesByIds(ids: [1, 2, 3, 4, 5, 6]) {
+    name
+    air_date
+  }
+  characters(filters: {name: $name}) {
+    info {
+      count
+      pages
+      next
+      prev
+    }
+    result {
+      id
+      status
+      origin {
+        id
+      }
+    }
+  }
+}
+
+Query Variables:
+{
+  "characterId": 8,
+  "name": "Rahul"
+}
+
+------
+mutation
+{
+  createLocation(location:{name:"Aus",type:"South",dimension:"234"})
+  {
+    id
+  }
+}
+
+{
+  "data": {
+    "createLocation": {
+      "id": 11805
+    }
+  }
+}

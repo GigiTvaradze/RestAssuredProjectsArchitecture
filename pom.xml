@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>MaaSApiTesting</artifactId>
+    <artifactId>RestAssuredProjectsArchitecture</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -55,18 +55,6 @@
             <artifactId>annotations</artifactId>
             <version>RELEASE</version>
             <scope>compile</scope>
-        </dependency>
-<!--    Cucumber-->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>7.18.0</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>7.18.0</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 </project>
