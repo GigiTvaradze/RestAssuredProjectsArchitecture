@@ -56,5 +56,10 @@
             <version>RELEASE</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.0</version> <!-- Use the latest version -->
+        </dependency>
     </dependencies>
 </project>
