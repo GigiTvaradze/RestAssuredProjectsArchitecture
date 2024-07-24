@@ -1,0 +1,27 @@
+You can also create a json document by supplying a Map to Rest Assured.
+HashMap store items in "key/value" pairs. One object is used as a key (index) to another object (value).
+
+Create a HashMap object called capitalCities that will store String keys and String values:
+
+import java.util.HashMap; // import the HashMap class
+HashMap<String, String> capitalCities = new HashMap<String, String>();
+
+// Add keys and values (Country, City)
+    capitalCities.put("England", "London");
+    capitalCities.put("Germany", "Berlin");
+    capitalCities.put("Norway", "Oslo");
+    capitalCities.put("USA", "Washington DC");
+    System.out.println(capitalCities);
+
+To access a value in the HashMap, use the get() method and refer to its key:
+capitalCities.get("England");
+
+To remove an item, use the remove() method and refer to the key:
+capitalCities.remove("England");
+
+To remove all items, use the clear() method:
+capitalCities.clear();
+
+To find out how many items there are, use the size() method:
+capitalCities.size();
+

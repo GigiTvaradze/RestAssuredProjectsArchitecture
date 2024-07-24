@@ -1,0 +1,45 @@
+Apache POI API: Data Driven Testing From Excel
+mvn:
+Apache POI Common
+Apache POI API Based On OPC and OOXML Schemas
+
+
+Apache POI is an open-source Java-based library that can be used to handle the Microsoft Office Document by using Java-based programming language.
+Is used to manipulate Microsoft Excel documents such as .xls and .xlsx file formats.
+The test performance with the .xlsx file will be slower as compared to the .xls file in the Apache POI.
+
+Classes and Interfaces in Apache POI:
+
+>https://www.scientecheasy.com/2018/12/apache-poi-tutorial.html/<
+
+Strategy to Access Excel Data:
+Create Object for XSSFWorkbook class
+Get Access to Sheet
+Get Access to all rows of Sheet
+Access to specific row form all rows
+Get Access to all cells of Rows
+Access the Data from Excel into Arrays
+
+//XSSFWorkbook class is part of the Apache POI library and is used to represent an Excel workbook (.xlsx file)
+//fis: A FileInputStream object that is used to read the Excel file. It points to the location of the Excel file on the file system.
+        FileInputStream fis = new FileInputStream("/Users/gtv/Desktop/excelIntegration.xlsx");
+        XSSFWorkbook workbook = new XSSFWorkbook(fis);
+//XSSFSheet object representing the specified sheet.
+        XSSFSheet sheet = workbook.getSheet("Sheet1");
+//XSSFRow object representing the specified row,
+        XSSFRow row = sheet.getRow(1);
+//XSSFCell object representing the specified cell
+        XSSFCell cell = row.getCell(1);
+
+
+In Java, an Iterator is an object that enables you to traverse through a collection, one element at a time.
+It provides methods to iterate over a collection and to safely remove elements from the underlying collection during the iteration.
+
+Iterator<Row> rows = sheet.iterator();
+Row firstRow = rows.next();
+Iterator<Cell> cells = firstRow.cellIterator();
+
+Key Features of Iterator
+Traversal: Allows you to loop through a collection in a sequential manner.
+Removal: Allows you to remove elements from the collection during iteration
+
